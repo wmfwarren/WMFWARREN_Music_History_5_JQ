@@ -1,24 +1,16 @@
-var addViewLink = document.getElementById("addMusic");
-var listViewLink = document.getElementById("songList");
+$(document).ready(function() {
 
-var addMusicContent = document.getElementById("addMusicInfo");
-var listGenreContent = document.getElementById("songInfo");
-var listSongContent = document.getElementById("songDisplay");
+	var $addMusicContent = $("#addMusicInfo");
+	var $listGenreContent = $("#songInfo");
+	var $listSongContent = $("#songDisplay");
 
-function hideAddMusic() {
-	console.log("Hiding Music Addition Fields");
-	addMusicContent.classList.toggle("hidden");
-	listSongContent.classList.toggle("hidden");
-	listGenreContent.classList.toggle("hidden");
-}
+	$addMusicContent.toggle();
 
-function hideMusicInfo() {
-	console.log("Hiding Music info");
-	addMusicContent.classList.toggle("hidden");
-	listSongContent.classList.toggle("hidden");
-	listGenreContent.classList.toggle("hidden");
+	$(document).on("click", "#addMusic", function(){
+		$addMusicContent.toggle();
+		$listSongContent.toggle();
+		$listGenreContent.toggle();
+		$("#moreButton").toggle();
+	});
+});
 
-	listViewLink.addEventListener("click", hideAddMusic);
-}
-
-addViewLink.addEventListener("click", hideMusicInfo);
